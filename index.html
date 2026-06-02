@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Kos Wanita Harmony Residence</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #1F2937;
+    background: linear-gradient(135deg, #4DA3FF 0%, #FF7A59 100%);
+    min-height: 100vh;
+}
+* {
+    box-sizing: border-box;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,0.12);
+    pointer-events: none;
+}
+
+header {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    font-size: clamp(2.4rem, 3.5vw, 4rem);
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+header p {
+    margin: 12px auto 0;
+    max-width: 700px;
+    color: #485059;
+    font-size: 1rem;
+}
+
+/* Headings use Montserrat for modern headlines */
+h1,h2,h3 { font-family: 'Montserrat', system-ui, sans-serif; }
+
+/* Subtle text shadows to improve contrast on warm background */
+h1, h2, h3 {
+    text-shadow: none;
+    color: #1F2937;
+}
+
+/* Body/paragraph shadows (lighter) and CTA */
+.hero p,
+.card p,
+.cta-text,
+.cta-meta {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+/* Buttons use Montserrat for modern emphasis */
+button, .cta-button { font-family: 'Montserrat', system-ui, sans-serif; }
+
+.hero {
+    text-align: center;
+    padding: 80px 20px 60px;
+    background: rgba(255, 111, 60, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin: 20px;
+}
+
+.hero h2 {
+    font-size: clamp(2.5rem, 4vw, 4.2rem);
+    margin: 0;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+}
+
+.hero p {
+    margin: 20px auto 0;
+    max-width: 760px;
+    opacity: 0.88;
+    font-size: 1.05rem;
+    color: #ffffff;
+}
+
+.hero button {
+    margin-top: 28px;
+    padding: 18px 36px;
+    font-size: 1.1rem;
+}
+
+button {
+    margin-top: 20px;
+    padding: 18px 36px;
+    border: none;
+    background: #1b1b1b;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.25);
+}
+
+.section {
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #090808;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 22px;
+    padding: 22px;
+    margin: 10px;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.facility-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.facility-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.facility-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+.facility-card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.facility-card p {
+    margin: 0;
+    color: #dfecff;
+    line-height: 1.6;
+}
+
+.icon {
+    font-size: 1.4rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.gallery figure {
+    margin: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.gallery img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transform: scale(1);
+}
+
+figcaption {
+    padding: 14px 16px;
+    color: #d7e5ff;
+    font-size: 0.95rem;
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.price-list {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 0;
+    color: #d8e8f7;
+    line-height: 1.8;
+}
+
+.price-list li::before {
+    content: '•';
+    color: #FF6F3C;
+}
+
+iframe {
+    width: 100%;
+    height: 340px;
+    border: 0;
+    border-radius: 18px;
+}
+
+.cta-card {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    max-width: 720px;
+    margin: 18px auto 0;
+    background: rgba(255, 150, 115, 0.586);
+    border-radius: 15px;
+    padding: 18px 20px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+}
+.cta-text {
+    margin: 0;
+    font-size: 1rem;
+    color: #eef6ff;
+}
+.cta-meta {
+    margin: 0;
+    font-size: 0.86rem;
+    color: #f3e4d6;
+    opacity: 0.95;
+}
+.cta-cta {
+    margin: 6px 0 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #f4fbff;
+}
+.cta-button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    background: #34f826;
+    color: white;
+    border-radius: 30px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transition: 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    background: #4DA3FF;
+}
+.details-list details {
+    margin-bottom: 16px;
+    background: rgba(0, 0, 0, 0.251);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 18px;
+    padding: 16px;
+}
+
+.details-list summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: #f2fbff;
+}
+
+.details-list p {
+    margin: 14px 0 0;
+    line-height: 1.7;
+    color: #d9e8ff;
+}
+
+footer {
+    text-align: center;
+    padding: 24px 20px 40px;
+    color: #c6d8ec;
+}
+
+.footer-sub {
+    margin-top: -8px;
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+@media (max-width: 900px) {
+    .facility-grid,
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    header h1 {
+        font-size: 2.4rem;
+    }
+    .facility-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero {
+        padding: 60px 16px 40px;
+    }
+    button {
+        width: 100%;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>Kost Wanita Harmony Residence</h1>
+    <p>Temukan hunian yang hangat, aman, dan penuh kenangan di jantung Manado.</p>
+</header>
+
+<section class="hero">
+    <h2>Banyak Perjuangan Dimulai Dari Kamar Kecil</h2>
+    <p>Harmony Residence menawarkan kamar nyaman, fasilitas premium, serta suasana ramah untuk mahasiswa dan profesional perempuan.</p>
+</section>
+
+<!-- FASILITAS -->
+<section class="section">
+    <h2>Fasilitas Unggulan</h2>
+    <div class="facility-grid">
+        <div class="card facility-card">
+            <h3><span class="icon">📶</span>WiFi Fiber 100 Mbps</h3>
+            <p>Koneksi cepat untuk belajar online, video conference, dan streaming tanpa gangguan.</p>
+        </div>
+        <div class="card facility-card">
+            <h3><span class="icon">🚿</span>Kamar Mandi Dalam</h3>
+            <p>Privasi penuh dengan kamar mandi dalam yang bersih dan nyaman.</p>
+        </div>
+       <div class="card facility-card">
+            <h3><span class="icon">🚗</span>Parkiran Nyaman</h3>
+            <p>Area parkir luas untuk kendaraan penghuni dan tamu dengan akses mudah.</p>
+        </div> 
+        <div class="card facility-card">
+            <h3><span class="icon">❄️</span>AC & Ventilasi Modern</h3>
+            <p>Kamar sejuk dengan sirkulasi udara segar supaya tidur nyenyak setiap malam.</p>
+        </div>
+        <div class="card facility-card">
+            <h3><span class="icon">🔒</span>CCTV & Keamanan 24 Jam</h3>
+            <p>Lingkungan aman dan pengawasan terus-menerus untuk kenyamanan penghuni.</p>
+        </div>
+        
+        <div class="card facility-card">
+            <h3><span class="icon">🛋️</span>Kamar Full Furnished</h3>
+            <p>Tempat tidur, meja belajar, lemari, dan dekorasi modern siap pakai.</p>
+        </div>
+    </div>
+</section>
+
+<!-- GALERI -->
+<section class="section gallery">
+    <h2>Galeri Kos</h2>
+    <div class="gallery-grid">
+        <figure>
+            <img src="images/Koridor kos.jpeg" alt="Interior ruang tamu kos" loading="lazy">
+            <figcaption>Area bersama yang terang dengan desain modern.</figcaption>
+        </figure>
+        <figure>
+            <img src="images/Kamar kos.jpeg" alt="Kamar kos wanita" loading="lazy">
+            <figcaption>Kamar pribadi dengan perabot lengkap dan ventilasi lebar.</figcaption>
+        </figure>
+        <figure>
+            <img src="images/Kamar mandi.png" alt="Kamar mandi bersih" loading="lazy">
+            <figcaption>Kamar mandi dalam yang bersih dan nyaman setiap hari.</figcaption>
+        </figure>
+        <figure>
+            <img src="images/Tampak depan kos.jpeg" alt="Tampak depan kos" loading="lazy">
+            <figcaption>Fasad kos dengan tampilan modern dan lokasi strategis.</figcaption>
+        </figure>
+        <figure>
+            <img src="images/Area sekitar kos.jpeg" alt="Area sekitar kos" loading="lazy">
+            <figcaption>Lingkungan sekitar yang aman dan mudah akses ke fasilitas umum.</figcaption>
+        </figure>
+        <figure>
+            <img src="images/Parkiran.png" alt="Area parkir kos" loading="lazy">
+            <figcaption>Area parkir luas untuk kendaraan penghuni dan tamu.</figcaption>
+        </figure>
+    </div>
+</section>
+
+<!-- HARGA -->
+<section class="section">
+    <h2>Harga & Paket Lengkap</h2>
+    <div class="card">
+        <h1>Rp 750.000 / bulan</h1>
+        <p>Harga sudah termasuk semua fasilitas utama dan layanan kenyamanan.</p>
+        <ul class="price-list">
+            <li>WiFi Fiber 100 Mbps</li>
+            <li>AC & ventilasi modern</li>
+            <li>Kamar mandi dalam pribadi</li>
+            <li>Listrik & air sudah termasuk</li>
+            <li>Keamanan 24 jam + CCTV</li>
+            <li>Area parkir dan kebersihan rutin</li>
+        </ul>
+    </div>
+</section>
+
+
+
+<!-- LOKASI -->
+ <section class="section">
+    <h2>Lokasi Strategis</h2>
+    <div class="card">
+        <p>📍 Manado, dekat kampus & pusat kota</p>
+
+        <!-- MAP -->
+       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2371.5268785269172!2d124.88549773221452!3d1.5186501390951723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3287a1d2452b9f71%3A0x2f418c945d3c16ce!2sKost%20Wanita%20Harmony%20Residence%20Politeknik!5e0!3m2!1sid!2sid!4v1774952991583!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+
+
+<section class="hero">
+    <h2></h2>
+    <div class="cta-card">
+        <p class="cta-text">Siap lihat kamar? Chat sekarang untuk cek ketersediaan.</p>
+        <p class="cta-meta">Jam layanan 08.00–20.00</p>
+        <p class="cta-cta">Pesan Sekarang
+        </p>
+        <button class="cta-button" onclick="window.open('https://wa.me/085240982309','_blank')">💬 WhatsApp</button>
+    </div>
+</section>
+
+<!-- KONTAK removed -->
+
+<!-- FAQ -->
+<section class="section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="details-list">
+        <details>
+            <summary>Apakah kos ini khusus wanita?</summary>
+            <p>Ya, Harmony Residence adalah kos wanita dengan lingkungan aman dan nyaman untuk penghuni perempuan.</p>
+        </details>
+        <details>
+            <summary>Apakah listrik dan air sudah termasuk?</summary>
+            <p>Benar, semua biaya listrik dan air sudah termasuk dalam harga sewa bulanan.</p>
+        </details>
+        <details>
+            <summary>Apakah kontrak bisa bulanan?</summary>
+            <p>Bisa. Kami melayani kontrak bulanan agar lebih fleksibel bagi mahasiswa dan profesional.</p>
+        </details>
+        <details>
+            <summary>Apakah kos ini berlaku bebas?</summary>
+            <p>Kos ini bebas dari gangguan dan dikelola khusus untuk wanita, sehingga suasana tetap aman dan tenang.</p>
+        </details>
+    </div>
+</section>
+
+<footer>
+    <p>Harmony Residence — hunian nyaman yang bikin kamu rindu pulang.
+    </p>
+
+    <p class="footer-sub">
+        Kos nyaman ini cocok buat yang suka ‘5 menit lagi’
+    </p>
+</footer>
+
+</body>
+</html>
